@@ -91,7 +91,6 @@ for(i in 1:length(ifweekday)) {
 }
 
 # Average activity across all weekdays or all weekends.
-# Make a 2-panel plot of the average values
 activity_split <- split(activity_wk, activity_wk$day)
 intervalmeans_wkday <- as.numeric(by(activity_split[[1]]$steps, as.factor(activity_split[[1]]$interval), mean, na.rm = TRUE))
 intervalmeans_wkend <- as.numeric(by(activity_split[[2]]$steps, as.factor(activity_split[[2]]$interval), mean, na.rm = TRUE))
@@ -131,6 +130,7 @@ plot(x = dailyactivitymeans_wkend$Time.interval,
 # wkmeans <- as.data.frame(cbind(as.numeric(levels(as.factor(activity_NAimputed$interval))), intervalmeans_wk), stringsAsFactors = F)
 # colnames(dailyactivitymeans) <- c("Time.interval", "Mean.steps.taken")
 # 
+# Make a 2-panel plot of the average values
 dailyactivitymeans_wk$Time.interval <- as.numeric(dailyactivitymeans_wk$Time.interval)
 dailyactivitymeans_wk$Mean.steps.taken <- as.numeric(dailyactivitymeans_wk$Mean.steps.taken)
 dailyactivitymeans_wk$Day <- as.factor(dailyactivitymeans_wk$Day)
